@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import { useState } from "react";
 import {
   Table,
   TableBody,
@@ -24,13 +25,20 @@ import { orders } from "@/config/orders";
 import { formatIndianCurrency } from "@/lib/utils";
 
 export default function TransactionTable() {
+  const [id, setId] = useState("");
+  const searchArray = orders.filter((order) =>
+    id ? order.orderID.toString().startsWith(id) : order
+  );
+
   return (
     <div className="bg-white p-4 rounded-md">
       <div className="flex justify-between items-center ">
         <div className="relative flex items-center py-5 ">
           <Input
+            onChange={(e) => setId(e.target.value)}
+            value={id}
             className="rounded-md border pl-10 border-input bg-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
-            placeholder="Search features, tutorials, etc."
+            placeholder="Search by orderID..."
           />
           <span className="absolute left-0 pl-2">
             <Icons.Search className="text-gray-400" />
@@ -57,7 +65,7 @@ export default function TransactionTable() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {orders.map((order) => (
+            {searchArray.map((order) => (
               <TableRow key={order.orderID}>
                 <TableCell className="font-medium text-blue-500">
                   #{order.orderID}
