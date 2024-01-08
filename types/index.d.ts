@@ -28,3 +28,10 @@ export type DashboardConfig = {
   mainNav: MainNavItem[];
   sidebarNav: SidebarNavItem[];
 };
+
+export type Order = {
+  orderID: number;
+  orderDate: Date;
+  orderAmt: number;
+  transactionFee: number;
+}[];

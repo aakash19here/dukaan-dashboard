@@ -17,7 +17,7 @@ export function DashboardNav({ items }: DashboardNavProps) {
   }
 
   return (
-    <nav className="grid items-start gap-2">
+    <nav className="grid items-start md:gap-1 2xl:gap-2 2xl:mt-5">
       {items.map((item, index) => {
         const Icon = Icons[item.icon || "arrowRight"];
         return (

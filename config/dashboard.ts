@@ -38,5 +38,40 @@ export const dashboardConfig: DashboardConfig = {
       href: "/",
       icon: "Analytics",
     },
+    {
+      title: "Analytics",
+      href: "/",
+      icon: "Analytics",
+    },
+    {
+      title: "Payment",
+      href: "/",
+      icon: "Payments",
+    },
+    {
+      title: "Tools",
+      href: "/",
+      icon: "Tools",
+    },
+    {
+      title: "Discounts",
+      href: "/",
+      icon: "Discounts",
+    },
+    {
+      title: "Audience",
+      href: "/",
+      icon: "Audience",
+    },
+    {
+      title: "Appearance",
+      href: "/",
+      icon: "Appearance",
+    },
+    {
+      title: "Plugins",
+      href: "/",
+      icon: "Plugins",
+    },
   ],
 };
