@@ -39,12 +39,7 @@ export const dashboardConfig: DashboardConfig = {
       icon: "Analytics",
     },
     {
-      title: "Analytics",
-      href: "/",
-      icon: "Analytics",
-    },
-    {
-      title: "Payment",
+      title: "Payments",
       href: "/",
       icon: "Payments",
     },
