@@ -1,6 +1,8 @@
 import { Filter, FilterArray } from "@/components/filter";
 import { SummaryCard } from "@/components/summary-card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { orders } from "@/config/orders";
+import { formatIndianCurrency } from "@/lib/utils";
 import dynamic from "next/dynamic";
 
 const TransactionTable = dynamic(
@@ -30,6 +32,8 @@ const filterArray: FilterArray[] = [
 ];
 
 export default async function DashboardPage() {
+  const price = orders.reduce((acc, current) => acc + current.orderAmt, 0);
+
   return (
     <div className="p-3 ">
       <div className="flex justify-between items-center">
@@ -43,11 +47,14 @@ export default async function DashboardPage() {
         </TabsList>
         <TabsContent value="razorpay" className="w-full">
           <div className="flex gap-2 my-4">
-            <SummaryCard title="Total Orders" content="231" />
-            <SummaryCard title="Amount Received" content="21,32,911.90" />
+            <SummaryCard title="Total Orders" content={`${orders.length}`} />
+            <SummaryCard
+              title="Amount Received"
+              content={`₹${formatIndianCurrency(price)}`}
+            />
           </div>
           <p className="my-5">Transactions this month</p>
-          <TransactionTable />
+          <TransactionTable orders={orders} />
         </TabsContent>
         <TabsContent value="cashfree">Cashfree table goes here</TabsContent>
       </Tabs>

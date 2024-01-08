@@ -21,10 +21,10 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "./ui/pagination";
-import { orders } from "@/config/orders";
 import { formatIndianCurrency } from "@/lib/utils";
+import { Order } from "@/types";
 
-export default function TransactionTable() {
+export default function TransactionTable({ orders }: { orders: Order }) {
   const [id, setId] = useState("");
   const searchArray = orders.filter((order) =>
     id ? order.orderID.toString().startsWith(id) : order

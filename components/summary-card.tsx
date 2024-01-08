@@ -12,7 +12,7 @@ export function SummaryCard({ title, content }: SummaryCardProps) {
         <CardTitle className="font-normal text-base">{title}</CardTitle>
       </CardHeader>
       <CardContent>
-        <p className="text-2xl font-semibold">₹{content}</p>
+        <p className="text-2xl font-semibold">{content}</p>
       </CardContent>
     </Card>
   );
